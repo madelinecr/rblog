@@ -12,6 +12,27 @@
   </head>
 
   <body>
+    <!-- top bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">RBlog</li>
+          <li><%= link_to "Sign In", new_admin_session_path %></li>
+          <li><%= link_to "Register", new_admin_registration_path %></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end top bar -->
+
+    <!-- title -->
+    <div class="callout large primary">
+      <div class="row column text-center">
+        <h1>RBlog</h1>
+        <h2 class="subheader">Subtitle lorem ipsum dolor sit amet</h2>
+      </div>
+    </div>
+    <!-- end title -->
 
     <%= yield %>
 

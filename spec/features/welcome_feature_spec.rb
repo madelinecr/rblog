@@ -4,11 +4,16 @@ describe "Home page", :type => :feature do
 
   it "has a sign in link" do
     visit home_path
-    expect(page).to have_content("Sign in")
+    expect(page).to have_content("Sign In")
   end
 
   it "has a register link" do
     visit home_path
     expect(page).to have_content("Register")
+  end
+
+  it "has an about link" do
+    visit home_path
+    expect(page).to have_content("About")
   end
 end
