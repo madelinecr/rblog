@@ -40,6 +40,7 @@ group :development, :test do
   gem 'webrat'
   gem 'capybara'
   gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
 
   gem 'guard-rspec'
 end

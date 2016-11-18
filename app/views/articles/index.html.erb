@@ -1,0 +1,8 @@
+<h1>Index</h1>
+<% @articles.each do |a| %>
+  <div class="article">
+    <h1><%= a.title %></h1>
+    <br>
+    <p><%= a.body %></p>
+  </div>
+<% end %>
