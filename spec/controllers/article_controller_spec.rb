@@ -52,4 +52,21 @@ RSpec.describe ArticlesController, type: :controller do
       expect(response).to redirect_to(assigns(:article))
     end
   end
+
+  describe "PUT update" do
+    let(:params) do
+      { :title => 'new title', :body => 'new body' }
+    end
+    let(:article) { create(:article) }
+
+    before(:each) do
+      put :update, :params => { id: article.id, article: params }
+      article.reload
+    end
+
+    it { expect(assigns(:article)).to be_a(Article) }
+    it { expect(response).to redirect_to(assigns(:article)) }
+    it { expect(article.title).to eql params[:title] }
+
+  end
 end
