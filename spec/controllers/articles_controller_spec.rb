@@ -41,6 +41,22 @@ RSpec.describe ArticlesController, type: :controller do
     end
   end
 
+  describe "GET edit" do
+    let(:article) { create(:article) }
+
+    before :each do
+      get :edit, :params => { :id => article.id}
+    end
+
+    it "renders the edit template" do
+      expect(response).to render_template("articles/edit")
+    end
+
+    it "assigns @article" do
+      expect(assigns(:article)).to be_a(Article)
+    end
+  end
+
   describe "POST create" do
     let(:params) { attributes_for(:article) }
     it "creates an article" do
@@ -50,6 +66,11 @@ RSpec.describe ArticlesController, type: :controller do
     it "redirects to @article" do
       post :create, :params => { article: params }
       expect(response).to redirect_to(assigns(:article))
+    end
+
+    it "sets the flash" do
+      post :create, :params => { article: params }
+      should set_flash
     end
   end
 
@@ -67,6 +88,6 @@ RSpec.describe ArticlesController, type: :controller do
     it { expect(assigns(:article)).to be_a(Article) }
     it { expect(response).to redirect_to(assigns(:article)) }
     it { expect(article.title).to eql params[:title] }
-
+    it { should set_flash }
   end
 end
