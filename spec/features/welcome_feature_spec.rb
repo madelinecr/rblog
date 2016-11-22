@@ -16,4 +16,9 @@ describe "Home page", :type => :feature do
     visit home_path
     expect(page).to have_content("About")
   end
+
+  it "has an articles link" do
+    visit home_path
+    expect(page).to have_content("Articles")
+  end
 end
