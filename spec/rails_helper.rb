@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'factory_girl'
+require 'devise'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -37,6 +38,8 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
+  #devise
+  config.include Devise::Test::ControllerHelpers, :type => :controller
   #factory_girl
   config.include FactoryGirl::Syntax::Methods
 
