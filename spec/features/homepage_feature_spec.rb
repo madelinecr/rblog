@@ -10,5 +10,4 @@ describe "Home page", :type => :feature do
   specify { expect(page).to have_content("Register") }
   specify { expect(page).to have_content("About") }
   specify { expect(page).to have_content("Articles") }
-  
 end
