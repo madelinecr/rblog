@@ -36,7 +36,7 @@
     <!-- end title -->
 
     <% flash.each do |k,v| %>
-      <div class="alert alert-<%= k %>"><%= v %></div>
+      <div data-alert class="callout <%= k %>"><%= v %></div>
     <% end %>
 
     <div class="row column-12">
