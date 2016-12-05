@@ -90,4 +90,26 @@ RSpec.describe ArticlesController, type: :controller do
     it { expect(article.title).to eql params[:title] }
     it { should set_flash }
   end
+
+  describe "DELETE destroy" do
+    before :each do
+      @article = create(:article)
+    end
+
+    it "assigns @article" do
+      delete :destroy, :params => { :id => @article.id }
+      expect(assigns(:article)).to be_a(Article)
+    end
+
+    it "destroys the article" do
+      expect {
+        delete :destroy, :params => { :id => @article.id }
+      }.to change(Article, :count).by(-1)
+    end
+
+    it "redirects to articles_path" do
+      delete :destroy, :params => { :id => @article.id }
+      expect(response).to redirect_to(articles_path)
+    end
+  end
 end

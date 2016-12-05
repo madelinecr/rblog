@@ -2,7 +2,8 @@
   <h1><%= article.title %></h1>
 
   <%= link_to "Edit", edit_article_path(article) %> |
-  <%= link_to "Delete", "#" %>
+  <%= link_to "Delete", { action: :destroy, id: article.id },
+                          method: :delete, :data => { confirm: "Are you sure?" } %>
   <br>
 
   <p><%= article.body %></p>
