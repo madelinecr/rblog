@@ -10,4 +10,5 @@ describe "articles/_article" do
   specify { expect(rendered).to have_content(@article.title) }
   specify { expect(rendered).to have_content(@article.body) }
   specify { expect(rendered).to have_content("Edit") }
+  specify { expect(rendered).to have_content("Delete") }
 end
