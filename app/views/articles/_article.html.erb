@@ -1,5 +1,6 @@
 <div class="article">
-  <h1><%= @article.title %></h1>
+  <h1><%= article.title %></h1>
+  <div class="float-right"><%= link_to "Edit", edit_article_path(article) %></div>
   <br>
-  <p><%= @article.body %></p>
+  <p><%= article.body %></p>
 </div>
