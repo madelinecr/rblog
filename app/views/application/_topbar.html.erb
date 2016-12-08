@@ -1,0 +1,22 @@
+<!-- top bar -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li class="menu-text">RBlog</li>
+
+      <% if admin_signed_in? %> <!-- signed in -->
+        <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
+      <% else %> <!-- not signed in -->
+        <li><%= link_to "Sign In", new_admin_session_path %></li>
+      <% end %>
+
+      <% if Admin.count == 0 %> <!-- no admin accounts registered -->
+        <li><%= link_to "Register", new_admin_registration_path %></li>
+      <% end %>
+
+      <li><%= link_to "Articles", articles_path %></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</div>
+<!-- end top bar -->
