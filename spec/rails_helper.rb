@@ -9,6 +9,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'factory_girl'
 require 'devise'
+
+require 'helpers/session_helpers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -42,6 +44,9 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
   #factory_girl
   config.include FactoryGirl::Syntax::Methods
+  #session helpers
+  config.include Helpers::SessionHelpers, :type => :feature
+
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

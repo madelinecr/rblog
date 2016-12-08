@@ -3,11 +3,7 @@ require 'rails_helper'
 describe "Articles", :type => :feature do
 
   before :each do
-    admin = create(:admin)
-    visit new_admin_session_path
-    fill_in "admin_email", with: admin.email
-    fill_in "admin_password", with: admin.password
-    click_button "Log in"
+    login_admin(create(:admin))
   end
 
   describe "#new" do
