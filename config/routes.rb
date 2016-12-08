@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   #root to: 'welcome#home'
   root to: 'articles#index'
 
+  authenticate :admin do
+    resources :articles, only: [ :new, :create, :edit, :update, :destroy ]
+  end
   resources :articles
 end
