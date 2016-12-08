@@ -7,6 +7,7 @@ describe "Home page", :type => :feature do
   end
 
   specify { expect(page).to have_content("Sign In") }
+  specify { expect(page).to have_content("Sign Out") }
   specify { expect(page).to have_content("Register") }
   specify { expect(page).to have_content("About") }
   specify { expect(page).to have_content("Articles") }
