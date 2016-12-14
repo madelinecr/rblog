@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'foundation-rails'
+gem 'maruku'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,6 +43,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'html_validation'
+  gem 'rb-readline'
 
   gem 'guard-rspec'
   # database

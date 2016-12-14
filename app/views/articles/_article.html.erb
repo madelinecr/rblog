@@ -6,5 +6,5 @@
                           method: :delete, :data => { confirm: "Are you sure?" } %>
   <br>
 
-  <p><%= simple_format(article.body) %></p>
+  <p><%= raw article.body_markdown %></p>
 </div>
