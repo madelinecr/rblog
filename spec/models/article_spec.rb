@@ -9,7 +9,7 @@ RSpec.describe Article, type: :model do
     it "should return html" do
       article = create(:article)
       article.body = "Lorem ipsum"
-      expect(article.body_markdown).to eql("\n<p>Lorem ipsum</p>\n")
+      expect(article.body_markdown).to eql("<p>Lorem ipsum</p>\n")
     end
   end
 end
