@@ -13,6 +13,10 @@ RSpec.describe Article, type: :model do
     expect(subject).to validate_presence_of(:body)
   end
 
+  it "validates length of title" do
+    expect(subject).to validate_length_of(:title).is_at_least(8)
+  end
+
   describe "body_markdown" do
     it "should return html" do
       article = create(:article)
