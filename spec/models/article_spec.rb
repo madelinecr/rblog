@@ -5,7 +5,7 @@ RSpec.describe Article, type: :model do
     expect(FactoryGirl.create(:article)).to be_valid
   end
 
-  describe "body_markdown(markdown)" do
+  describe "body_markdown" do
     it "should return html" do
       article = create(:article)
       article.body = "Lorem ipsum"
