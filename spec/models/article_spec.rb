@@ -6,11 +6,11 @@ RSpec.describe Article, type: :model do
   end
 
   it "validates presence of title" do
-    should validate_presence_of(:title)
+    expect(subject).to validate_presence_of(:title)
   end
 
   it "validates presence of body" do
-    should validate_presence_of(:body)
+    expect(subject).to validate_presence_of(:body)
   end
 
   describe "body_markdown" do
