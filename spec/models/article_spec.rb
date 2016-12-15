@@ -5,6 +5,14 @@ RSpec.describe Article, type: :model do
     expect(FactoryGirl.create(:article)).to be_valid
   end
 
+  it "validates presence of title" do
+    should validate_presence_of(:title)
+  end
+
+  it "validates presence of body" do
+    should validate_presence_of(:body)
+  end
+
   describe "body_markdown" do
     it "should return html" do
       article = create(:article)
