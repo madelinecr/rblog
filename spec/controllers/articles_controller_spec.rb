@@ -58,19 +58,29 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   describe "POST create" do
-    let(:params) { attributes_for(:article) }
-    it "creates an article" do
-      expect { post :create, :params => { article: params }}.to change(Article, :count).by 1
+    describe "on success" do
+      let(:params) { attributes_for(:article) }
+      it "creates an article" do
+        expect { post :create, :params => { article: params }}.to change(Article, :count).by 1
+      end
+
+      it "redirects to @article" do
+        post :create, :params => { article: params }
+        expect(response).to redirect_to(assigns(:article))
+      end
+
+      it "sets the flash" do
+        post :create, :params => { article: params }
+        should set_flash
+      end
     end
 
-    it "redirects to @article" do
-      post :create, :params => { article: params }
-      expect(response).to redirect_to(assigns(:article))
-    end
-
-    it "sets the flash" do
-      post :create, :params => { article: params }
-      should set_flash
+    describe "on failure" do
+      let(:params) { attributes_for(:article, title: nil) }
+      it "renders new" do
+        post :create, :params => { article: params }
+        expect(response).to render_template('articles/new')
+      end
     end
   end
 

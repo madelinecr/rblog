@@ -19,9 +19,12 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    @article.save
-    flash[:success] = "Success!"
-    redirect_to @article
+    if @article.save
+      flash[:success] = "Success!"
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
   def update
