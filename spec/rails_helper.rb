@@ -43,9 +43,11 @@ end
 RSpec.configure do |config|
   #devise
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :view
   #factory_girl
   config.include FactoryGirl::Syntax::Methods
   #session helpers
+  config.include Helpers::SessionHelpers, :type => :view
   config.include Helpers::SessionHelpers, :type => :feature
 
 
