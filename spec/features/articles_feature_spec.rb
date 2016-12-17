@@ -2,6 +2,21 @@ require 'rails_helper'
 
 describe "Articles", :type => :feature do
 
+  describe "logged out" do
+    describe "#show" do
+      let(:article) { create(:article) }
+      it "should not have edit link" do
+        visit article_path(article)
+        expect(page).to_not have_content("Edit")
+      end
+
+      it "should not have destroy link" do
+        visit article_path(article)
+        expect(page).to_not have_content("Delete")
+      end
+    end
+  end
+
   describe "logged in as admin" do
     before :each do
       login_admin(create(:admin))
