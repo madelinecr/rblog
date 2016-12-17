@@ -2,4 +2,6 @@
   <%= render article %>
 <% end %>
 
-<a class="button">New Article</a>
+<% if admin_signed_in? %>
+  <a class="button">New Article</a>
+<% end %>

@@ -3,6 +3,12 @@ require 'rails_helper'
 describe "Articles", :type => :feature do
 
   describe "logged out" do
+    describe "#index" do
+      it "should not have new article link" do
+        visit articles_path
+        expect(page).to_not have_content("New Article")
+      end
+    end
     describe "#show" do
       let(:article) { create(:article) }
       it "should not have edit link" do
