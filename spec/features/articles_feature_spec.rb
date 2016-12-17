@@ -14,6 +14,20 @@ describe "Articles", :type => :feature do
       end
     end
 
+    describe "#show" do
+      let(:article) { create(:article) }
+
+      it "has an edit article link" do
+        visit article_path(article)
+        expect(page).to have_content("Edit")
+      end
+
+      it "has a delete article link" do
+        visit article_path(article)
+        expect(page).to have_content("Delete")
+      end
+    end
+
     describe "#new" do
       it "creates a new article" do
         visit new_article_path
