@@ -1,6 +1,8 @@
 # README
 
-RBlog is the software that runs my blog, bpace.info
+RBlog is the software that will eventually run my blog, bpace.info.
+Even further down the road it has plans of being a generic blogging
+platform for anybody to use.
 
 ## Run Server
 
