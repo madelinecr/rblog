@@ -12,4 +12,10 @@ describe "articles/_form" do
     render
     expect(rendered).to have_selector("#article_body")
   end
+
+  it "should have a form for header" do
+    assign(:article, build(:article))
+    render
+    expect(rendered).to have_selector("#article_header")
+  end
 end
