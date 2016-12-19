@@ -12,8 +12,8 @@ RBlog is the software that runs my blog, bpace.info
 
 ## Testing with rspec
 
-This app uses rspec-rails, capybara, rails-controller-testing
-factory_girl, shoulda-matchers, html_validation and more for the
+This app uses `rspec-rails`, `capybara`, `rails-controller-testing`
+`factory_girl`, `shoulda-matchers`, `html_validation` and more for the
 specs written.
 
 ### Controllers
