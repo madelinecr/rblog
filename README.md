@@ -42,3 +42,7 @@ Specs for testing models. Pretty straight-forward. Similar to controller specs.
 
 These specs only test the site as it appears from a signed out user. Any more
 complicated behavior will be tested in a feature spec.
+
+## Installation Requirements
+
+* Imagemagick
