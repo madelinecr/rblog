@@ -29,9 +29,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(article_params)
-    flash[:success] = "Success!"
-    redirect_to @article
+    
+    if @article.update(article_params)
+      flash[:success] = "Success!"
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
   def destroy

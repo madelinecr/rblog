@@ -85,20 +85,37 @@ RSpec.describe ArticlesController, type: :controller do
   end
 
   describe "PUT update" do
-    let(:params) do
-      { :title => 'new title', :body => 'new body' }
-    end
-    let(:article) { create(:article) }
+    describe "success" do
+      let(:params) do
+        { :title => 'new title', :body => 'new body' }
+      end
+      let(:article) { create(:article) }
 
-    before(:each) do
-      put :update, :params => { id: article.id, article: params }
-      article.reload
+      before(:each) do
+        put :update, :params => { id: article.id, article: params }
+        article.reload
+      end
+
+      it { expect(assigns(:article)).to be_a(Article) }
+      it { expect(response).to redirect_to(assigns(:article)) }
+      it { expect(article.title).to eql params[:title] }
+      it { should set_flash }
     end
 
-    it { expect(assigns(:article)).to be_a(Article) }
-    it { expect(response).to redirect_to(assigns(:article)) }
-    it { expect(article.title).to eql params[:title] }
-    it { should set_flash }
+    describe "failure" do
+      let(:params) do
+        { :title => 'short', :body => nil }
+      end
+      let(:article) { create(:article) }
+
+      before :each do
+        put :update, :params => { id: article.id, article: params }
+        article.reload
+      end
+
+      it { expect(assigns(:article)).to be_a(Article) }
+      it { expect(response).to render_template('articles/new')}
+    end
   end
 
   describe "DELETE destroy" do
