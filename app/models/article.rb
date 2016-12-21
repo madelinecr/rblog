@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 
   validates :title, length: { minimum: 8 }
 
-  has_attached_file :header, styles: { medium: "300x300>" }
+  has_attached_file :header, styles: { standard: "850x350>" }
   validates_attachment_content_type :header, :content_type => ["image/png"]
 
   def body_markdown
