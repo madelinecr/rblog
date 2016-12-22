@@ -12,6 +12,7 @@ require 'devise'
 
 require 'helpers/session_helpers'
 require 'html_validation'
+require 'paperclip/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -49,6 +50,8 @@ RSpec.configure do |config|
   #session helpers
   config.include Helpers::SessionHelpers, :type => :view
   config.include Helpers::SessionHelpers, :type => :feature
+  #Paperclip
+  config.include Paperclip::Shoulda::Matchers
 
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
