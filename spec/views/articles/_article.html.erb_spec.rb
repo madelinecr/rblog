@@ -9,4 +9,5 @@ RSpec.describe "articles/_article", type: :view do
 
   specify { expect(rendered).to have_content(@article.title) }
   specify { expect(rendered).to have_content(@article.body) }
+  specify { expect(rendered).to have_xpath("//img[@src='#{@article.header.url(:standard)}']") }
 end
