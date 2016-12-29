@@ -1,7 +1,7 @@
-<% @articles.each do |article| %>
-  <%= render article %>
-<% end %>
-
 <% if admin_signed_in? %>
   <%= link_to "New Article", new_article_path, class: 'button' %>
+<% end %>
+
+<% @articles.each do |article| %>
+  <%= render article %>
 <% end %>
