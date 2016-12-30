@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219015235) do
+ActiveRecord::Schema.define(version: 20161230203118) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20161219015235) do
     t.string   "header_content_type"
     t.integer  "header_file_size"
     t.datetime "header_updated_at"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_images_on_article_id"
   end
 
 end
