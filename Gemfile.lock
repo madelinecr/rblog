@@ -131,6 +131,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     nenv (0.3.0)
+    nested_form (0.3.2)
     nio4r (1.2.1)
     nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
@@ -280,6 +281,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  nested_form
   paperclip (~> 5.0.0)
   pg
   puma (~> 3.0)
