@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '6.2.4.0'
 gem 'redcarpet'
 gem 'paperclip', '~>5.0.0'
 gem 'nested_form'
