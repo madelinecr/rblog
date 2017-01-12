@@ -1,5 +1,5 @@
 <div id="form">
-  <%= form_for @article, html: { multipart: true } do |f| %>
+  <%= nested_form_for @article, html: { multipart: true } do |f| %>
     <p>
       <%= f.label :title %><br>
       <%= f.text_field :title %>
@@ -15,6 +15,14 @@
       <%= f.file_field :header %>
     </p>
 
+    <p>
+      <%= f.fields_for :photos do |photo| %>
+        <%= photo.label "New Photo" %>
+        <%= photo.file_field :name %>
+        <%= photo.link_to_remove "Remove this photo" %>
+      <% end %>
+      <%= f.link_to_add "Add a Photo", :photos %>
+    </p>
 
     <p>
       <%= f.submit %>

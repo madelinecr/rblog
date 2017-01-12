@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   authenticate :admin do
-    resources :articles, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :articles, only: [ :new, :create, :edit, :update, :destroy ] do
+      resources :images
+    end
   end
   resources :articles
 end

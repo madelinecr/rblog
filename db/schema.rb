@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20161230203118) do
     t.datetime "header_updated_at"
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "title"
     t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_images_on_article_id"
+    t.index ["article_id"], name: "index_photos_on_article_id"
   end
 
 end
