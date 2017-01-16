@@ -42,6 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
