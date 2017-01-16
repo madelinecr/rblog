@@ -14,5 +14,15 @@ FactoryGirl.define do
     factory :article_with_header do
       header { fixture_file_upload(Rails.root.join('spec', 'factory_image.png'), 'image/png') }
     end
+
+    factory :article_with_photo do
+      after(:create) do |article|
+        create(:photo, article: article)
+      end
+    end
+  end
+
+  factory :photo do
+    title "Desktop screenshot 1"
   end
 end
