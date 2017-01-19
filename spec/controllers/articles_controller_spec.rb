@@ -39,6 +39,11 @@ RSpec.describe ArticlesController, type: :controller do
       get :new
       expect(assigns(:article)).to be_a_new(Article)
     end
+
+    it "initializes @article.photos with single Photo" do
+      get :new
+      expect(assigns(:article).photos.first).to be_a_new(Photo)
+    end
   end
 
   describe "GET edit" do

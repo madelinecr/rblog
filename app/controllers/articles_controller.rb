@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.photos << Photo.new
   end
 
   def edit
