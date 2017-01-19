@@ -86,6 +86,11 @@ RSpec.describe ArticlesController, type: :controller do
         post :create, :params => { article: params }
         expect(response).to render_template('articles/new')
       end
+
+      it "builds a photo" do
+        post :create, :params => { article: params }
+        expect(assigns(:article).photos.first).to be_a_new(Photo)
+      end
     end
   end
 

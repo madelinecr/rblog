@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Success!"
       redirect_to @article
     else
+      @article.photos << Photo.new
       render 'new'
     end
   end
