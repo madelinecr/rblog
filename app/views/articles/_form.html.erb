@@ -14,11 +14,11 @@
       <%= f.label :header %>
       <%= f.file_field :header %>
     </p>
-
+    <hr>
     <p>
       <%= f.fields_for :photos do |photo| %>
-        <%= photo.label "New Photo" %>
-        <%= photo.file_field :name %>
+        <%= photo.label :title %>
+        <%= photo.text_field :title %>
         <%= photo.link_to_remove "Remove this photo" %>
       <% end %>
       <%= f.link_to_add "Add a Photo", :photos %>
