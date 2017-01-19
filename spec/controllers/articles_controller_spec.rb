@@ -119,7 +119,7 @@ RSpec.describe ArticlesController, type: :controller do
       end
 
       it { expect(assigns(:article)).to be_a(Article) }
-      it { expect(response).to render_template('articles/new')}
+      it { expect(response).to render_template('articles/edit')}
     end
   end
 

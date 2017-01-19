@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Success!"
       redirect_to @article
     else
-      render 'new'
+      render 'edit'
     end
   end
 
