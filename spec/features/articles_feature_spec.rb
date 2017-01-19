@@ -55,8 +55,21 @@ describe "Articles", :type => :feature do
         within("#form") do
           fill_in "Title", with: "Lorem ipsum dolor sit amet"
           fill_in "Body",  with: "consectetur adipiscing elit"
+          attach_file "Header", "spec/factory_image.png"
         end
         click_button 'Create'
+        expect(page).to have_content("Success")
+      end
+
+      it "attaches photos to article" do
+        visit new_article_path
+        within("#form") do
+          fill_in "Title", with: "Lorem ipsum dolor sit amet"
+          fill_in "Body", with: "consectetur adipiscing elit"
+          attach_file "Header", "spec/factory_image.png"
+          fill_in "Caption", with: "My desktop"
+        end
+        click_button "Create"
         expect(page).to have_content("Success")
       end
     end
@@ -68,6 +81,7 @@ describe "Articles", :type => :feature do
         within("#form") do
           fill_in "Title", with: "Edited title"
           fill_in "Body",  with: "Edited body"
+          attach_file "Header", "spec/factory_image2.png"
         end
         click_button 'Update'
         expect(page).to have_content("Success")
