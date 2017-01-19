@@ -41,6 +41,9 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+# Capybara.javascript_driver = :webkit
+# Capybara.ignore_hidden_elements = false
+
 RSpec.configure do |config|
   #devise
   config.include Devise::Test::ControllerHelpers, :type => :controller
