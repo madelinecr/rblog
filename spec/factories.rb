@@ -23,6 +23,8 @@ FactoryGirl.define do
   end
 
   factory :photo do
-    title "Desktop screenshot 1"
+    article
+    caption "Desktop screenshot 1"
+    photo { fixture_file_upload(Rails.root.join('spec', 'factory_image.png'), 'image/png') }
   end
 end
