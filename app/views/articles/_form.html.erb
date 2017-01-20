@@ -31,8 +31,12 @@
     <hr>
     <p>
       <%= f.fields_for :photos do |photo| %>
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+
         <%= photo.label :caption %>
         <%= photo.text_field :caption %>
+
         <%= photo.link_to_remove "Remove this photo" %>
       <% end %>
       <%= f.link_to_add "Add a Photo", :photos %>

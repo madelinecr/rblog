@@ -68,6 +68,7 @@ describe "Articles", :type => :feature do
           fill_in "Body", with: "consectetur adipiscing elit"
           attach_file "Header", "spec/factory_image.png"
           fill_in "Caption", with: "My desktop"
+          attach_file "Photo", "spec/factory_image2.png"
         end
         click_button "Create"
         expect(page).to have_content("Success")
