@@ -17,15 +17,28 @@ RSpec.describe Article, type: :model do
     expect(subject).to validate_length_of(:title).is_at_least(8)
   end
 
+  it "has many photos" do
+    expect(subject).to have_many(:photos)
+  end
+
+  it "accepts nested attributes for photos" do
+    expect(subject).to accept_nested_attributes_for(:photos)
+  end
+
+  it "accepts nested attributes for photos allow destroy" do
+    expect(subject).to accept_nested_attributes_for(:photos).allow_destroy(true)
+  end
+
   # Paperclip
   it "has an attached header" do
-    expect(subject).to have_attached_file :header
+    expect(subject).to have_attached_file(:header)
   end
 
   it "validates content type of header" do
     expect(subject).to validate_attachment_content_type(:header).allowing("image/png").rejecting("image/jpg")
   end
 
+  # Methods
   describe "body_markdown" do
     it "should return html" do
       article = create(:article)

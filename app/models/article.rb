@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   validates_attachment_content_type :header, :content_type => ["image/png"]
 
   has_many :photos
-  accepts_nested_attributes_for :photos, reject_if: proc {|a| a['caption'].blank? }
+  accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: proc {|a| a['caption'].blank? }
 
   def body_markdown
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true)
