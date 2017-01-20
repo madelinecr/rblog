@@ -31,8 +31,10 @@
     <hr>
     <p>
       <%= f.fields_for :photos do |photo| %>
-        <%= f.label :photo %>
-        <%= f.file_field :photo %>
+        <%= photo.label :photo %>
+        <%= photo.file_field :photo %>
+
+        <%= image_tag photo.object.photo.url(:thumb) if photo.object.photo.file? %>
 
         <%= photo.label :caption %>
         <%= photo.text_field :caption %>
