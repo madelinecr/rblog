@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+  <div class="callout warning">
+    <h4>
+      <%= pluralize(object.errors.count, "error") %> prohibited this article from being saved.
+    </h4>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
