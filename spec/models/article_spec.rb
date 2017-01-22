@@ -46,4 +46,11 @@ RSpec.describe Article, type: :model do
       expect(article.body_markdown).to eql("<p>Lorem ipsum</p>\n")
     end
   end
+
+  describe "paragraph" do
+    it "should return one paragraph" do
+      article = create(:article, body: "One\n\nTwo")
+      expect(article.paragraph).to eql("One")
+    end
+  end
 end

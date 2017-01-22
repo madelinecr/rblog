@@ -13,4 +13,8 @@ class Article < ApplicationRecord
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true)
     markdown.render(body)
   end
+
+  def paragraph
+    body_markdown.scan(/<p>(.*)<\/p>/)[0][0]
+  end
 end
