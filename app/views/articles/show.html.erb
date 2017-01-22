@@ -1,2 +1,18 @@
 <% content_for :title, @article.title %>
-<%= render @article %>
+<div class="article">
+  <h1><%= @article.title %></h1>
+
+  <% if @article.header.present? %>
+    <%= image_tag @article.header.url(:standard) %>
+  <% end %>
+  <br>
+
+  <% if admin_signed_in? %>
+    <%= link_to "Edit", edit_article_path(@article), class: 'button' %>
+    <%= link_to "Delete", { action: :destroy, id: @article.id }, class: 'button',
+                            method: :delete, :data => { confirm: "Are you sure?" } %>
+  <% end %>
+  <br>
+
+  <p><%= raw @article.body_markdown %></p>
+</div>
