@@ -12,7 +12,8 @@ class Article < ApplicationRecord
                                 reject_if: proc {|a| a['caption'].blank? }
 
   def body_markdown
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true)
+    options = { fenced_code_blocks: true }
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
     markdown.render(body)
   end
 
