@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   authenticate :admin do
+    resources :app_settings
     resources :articles, only: [ :new, :create, :edit, :update, :destroy ] do
       resources :images
     end

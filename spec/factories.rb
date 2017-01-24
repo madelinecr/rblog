@@ -1,6 +1,9 @@
 include ActionDispatch::TestProcess
 
 FactoryGirl.define do
+  factory :app_setting do
+    
+  end
   factory :admin do
     sequence(:email) {|n| "testuser#{n}@example.org" }
     password              "password"
