@@ -1,0 +1,19 @@
+<div id="app-settings">
+  <%= form_for @app_setting, html: { multipart: true } do |f| %>
+
+    <%= render 'errors', object: f.object %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :subtitle %>
+      <%= f.text_field :subtitle %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
