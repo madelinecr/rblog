@@ -6,6 +6,13 @@ class AppSettingsController < ApplicationController
 
   private
     def app_setting
-      AppSetting.first.nil? ? AppSetting.new : AppSetting.first
+      if AppSetting.first.nil? then
+        @app_setting = AppSetting.new
+        @app_setting.title = "RBlog"
+        @app_setting.subtitle = "Subtitle"
+        return @app_setting
+      else
+        return AppSetting.first
+      end
     end
 end
