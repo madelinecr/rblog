@@ -34,6 +34,7 @@ gem 'devise'
 gem 'foundation-rails', '6.2.4.0'
 gem 'redcarpet'
 gem 'paperclip', '~>5.0.0'
+gem 'paperclip-meta'
 gem 'nested_form'
 
 group :development, :test do
