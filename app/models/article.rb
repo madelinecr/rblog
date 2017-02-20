@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include RedcarpetHelper
+
   validates_presence_of :title, :body
 
   validates :title, length: { minimum: 8 }
@@ -7,14 +9,15 @@ class Article < ApplicationRecord
   validates_attachment_content_type :header, :content_type => ["image/png"]
 
   has_many :photos
-  accepts_nested_attributes_for :photos, 
-                                allow_destroy: true, 
+  accepts_nested_attributes_for :photos,
+                                allow_destroy: true,
                                 reject_if: proc {|a| a['caption'].blank? }
 
   def body_markdown
     options = { fenced_code_blocks: true }
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
-    markdown.render(body)
+    #markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    renderer = markdown(options)
+    renderer.render(body)
   end
 
   def paragraph
