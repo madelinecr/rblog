@@ -60,19 +60,6 @@ describe "Articles", :type => :feature do
         click_button 'Create'
         expect(page).to have_content("Success")
       end
-
-      it "attaches photos to article" do
-        visit new_article_path
-        within("#form") do
-          fill_in "Title", with: "Lorem ipsum dolor sit amet"
-          fill_in "Body", with: "consectetur adipiscing elit"
-          attach_file "Header", "spec/factory_image.png"
-          fill_in "Caption", with: "My desktop"
-          attach_file "Photo", "spec/factory_image2.png"
-        end
-        click_button "Create"
-        expect(page).to have_content("Success")
-      end
     end
 
     describe "#edit" do
