@@ -1,6 +1,6 @@
 <div id="form">
   <%= nested_form_for @article, html: { multipart: true } do |f| %>
-  
+
     <%= render 'errors', object: f.object %>
 
     <p>
@@ -19,7 +19,7 @@
     </p>
     <hr>
 
-    <table style="width: 100%">
+    <table>
       <tr>
         <th>Preview</th>
         <th>Caption</th>
@@ -48,9 +48,17 @@
           </tr>
         <% end %>
     </table>
-    <p>
-      <%= f.link_to_add "Add a Photo", :photos %>
-    </p>
+
+    <table>
+      <tr>
+        <th>New Photos</th>
+      </tr>
+
+      <tr>
+        <td><%= f.link_to_add "Add a Photo", :photos %></td>
+      </tr>
+    </table>
+
 
     <p>
       <%= f.submit %>
